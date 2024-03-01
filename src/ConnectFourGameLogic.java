@@ -27,7 +27,7 @@ public class ConnectFourGameLogic {
     }
     
     public GameBoard getBoard() {
-    	return board;
+		return board;
     }
     
     public int round(int col) {
@@ -64,8 +64,8 @@ public class ConnectFourGameLogic {
 	}
 	
 	private boolean checkWinPoint(Piece[][] board, int rowPlaced, int colPlaced) {
-		int[] xDirections = { 1, -1, 1, 0 };
-		int[] yDirections = { 0, -1, -1, 1 };
+		int[] xDirections = { 1, -1, 1, 0, -1};
+		int[] yDirections = { 0, -1, -1, -1, 0};
 		int i = 0;
 		//this loop will run for the length of directions which is 4
 		
