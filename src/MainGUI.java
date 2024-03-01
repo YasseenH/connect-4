@@ -11,22 +11,14 @@ import javax.swing.JOptionPane;
 @SuppressWarnings("serial")
 public class MainGUI extends JFrame{
     private final Container cp;
-
     private final ConnectFourGameLogic game;
-
-    // TODO: Get it from the board
-    int rows;
-    int columns;
-
-    // TODO: Calculate them instead
-    int windowWidth = 750;
-    int windowHeight = 650;
-
-    // Prepare ImageIcons to be used with JComponents
-    private ImageIcon iconEmpty = null;
-    private ImageIcon iconRed = null;
-    private ImageIcon iconYellow = null;
-
+    private final int rows;
+    private final int columns;
+    private final int WINDOW_WIDTH = 750;
+    private final int WINDOW_HEIGHT = 650;
+    private ImageIcon iconEmpty;
+    private ImageIcon iconRed;
+    private ImageIcon iconYellow;
     private final String title = "Yasseen's Connect Four";
     
     public MainGUI(boolean player1turn, ConnectFourGameLogic game) {
@@ -47,7 +39,6 @@ public class MainGUI extends JFrame{
         if (imgURL != null) iconRed = new ImageIcon(imgURL);
         else System.err.println(errorMessage + imgRedFilename);
 
-
         String imgYellowFilename = "icons/yellow.png";
         imgURL = getClass().getClassLoader().getResource(imgYellowFilename);
         if (imgURL != null) iconYellow = new ImageIcon(imgURL);
@@ -58,21 +49,23 @@ public class MainGUI extends JFrame{
 
         for(int row = 0; row < rows; row++) {
             for (int col = 0; col < columns; col++) {
-                JButton button = new JButton(); // use setter to set text and icon
+                JButton button = new JButton();
                 button.setIcon(iconEmpty);
                 button.setPreferredSize(new Dimension(100, 100));
-                // row * 10 + col
                 button.setName(Integer.toString((row * 10 + col)));
-
                 button.addActionListener(actionEvent -> updater(((JButton) (actionEvent.getSource()))));
                 cp.add(button);
             }
         }
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        if(!player1turn) setTitle(title + " - Yellow's Turn");
-        else setTitle(title + "- Red's Turn");
-        setLocationRelativeTo(null); // center window on the screen
-        setSize(windowWidth, windowHeight);
+        if(!player1turn) {
+            setTitle(title + " - Yellow's Turn");
+        }
+        else {
+            setTitle(title + "- Red's Turn");
+        }
+        setLocationRelativeTo(null); // center the window
+        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setVisible(true);
     }
     
@@ -81,8 +74,12 @@ public class MainGUI extends JFrame{
         int col = row10plusCol % 10;
 
         boolean player1turn = game.isPlayerOneplaying();
-        if(player1turn) setTitle(title + " - Yellow's Turn");
-        else setTitle(title + "- Red's Turn");
+        if(player1turn) {
+            setTitle(title + " - Yellow's Turn");
+        }
+        else {
+            setTitle(title + "- Red's Turn");
+        }
 
         int addedRow = game.round(col);
 
@@ -95,7 +92,7 @@ public class MainGUI extends JFrame{
 				buttonToUpdate.setIcon(iconRed);
 			}
 
-            // check for winner
+            // checks for winner
             if(game.checkForWinnerInGUI(col)) {
                 JOptionPane.showMessageDialog(null, "You have won!");
                 int reply = JOptionPane.showConfirmDialog(null, "Would you like to play again?", null, JOptionPane.YES_NO_OPTION);
