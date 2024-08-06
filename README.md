@@ -2,6 +2,8 @@
 
 Welcome to the Connect 4 project! This is a Java Swing application that implements the classic game of Connect Four with a graphical user interface.
 
+https://github.com/user-attachments/assets/ff08eba2-72e4-4003-8c4e-8bbb86a1222d
+
 ## Overview
 
 This project aims to recreate the Connect Four game using Java Swing, providing an interactive and visually appealing experience. The game includes features like token placement, winner detection, and game reset functionalities.
