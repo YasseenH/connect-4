@@ -25,6 +25,30 @@ This project aims to recreate the Connect Four game using Java Swing, providing 
 - **Token Color Customization**: Allow users to switch token colors based on their preference (e.g., Orange, Yellow, Blue).
 - **Enhanced Gameplay Features**: Explore additional game features such as different board sizes, difficulty levels, or multiplayer support.
 
+## Installation
+
+To set up this project on your local machine, follow these steps:
+
+### Prerequisites
+
+- Java Development Kit (JDK)
+
+### Steps
+
+1. **Clone the repository:**
+
+    ```sh
+    git clone https://github.com/yourusername/connect4.git
+    cd connect4
+    ```
+
+2. **Run the ConnectFour.java File**
+   
+
+That's it! You should now have the Connect 4 game up and running on your local machine.
+
+
+
 For a reference point on GUI implementation, check out the [Connect 4 Reference](https://github.com/orfeasKalipolitis/connect4java/tree/main).
 
 ---
